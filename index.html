@@ -8,11 +8,31 @@
     <link rel="stylesheet" href="style.css">
     <title>Idioma Vinhebel</title>
   </head>
-  <body>
-    <input id="encriptografar" type="text">
-    <input id="descriptografar" type="text">
-    <button id="botao" onclick="encriptografarTexto(event)">Criptografar</button>
-    <button id="botao2" onclick="descriptografarTexto(event)">Descriptografar</button>
-    <script src="script.js"></script>
+  <body id="body">
+    <header id="cabecalho">
+      <h1 id="titulo">Idioma Vinhebel</h1>
+      <img src="images/vinhebel.ico">
+    </header>
+    
+    <div id="main">
+      <div class="display_flex">
+        <textarea id="encriptografar" type="text" class="input" placeholder="Insira o texto a ser encriptografado..."></textarea>
+      </div>
+      <div class="display_flex">
+        <textarea id="descriptografar" type="text" class="input" placeholder="Insira o texto a ser descriptografado..."></textarea>
+      </div>
+      <div class="display_flex">
+        <button id="botao1" class="botao" onclick="encriptografarTexto(event)">Criptografar</button>
+      </div>
+      <div class="display_flex">
+        <button id="botao2" class="botao" onclick="descriptografarTexto(event)">Descriptografar</button>
+      </div>
+    </div>
+
+    <div id="estrelas">
+      
+    </div>
+    <script src="criptografia.js"></script>
+    <script src="animacao.js"></script>
   </body>
 </html>

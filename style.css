@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+:root {
+  /*--fonte_titulo: 'Pacifico', cursive;*/
+  /*--fonte_titulo: 'Lilita One', cursive;*/
+  --fonte_titulo: 'Permanent Marker', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+textarea,
+h1,
+button {
+  z-index: 1;
+}
+
+textarea {
+  resize: none;
+}
+
+#cabecalho {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-family: var(--fonte_titulo);
+  grid-area: cabecalho;
+  justify-content: center;
+  text-align: center;
+}
+
+#titulo {
+  display: inline;
+}
+
+#main {
+  display: grid;
+  grid-area: main;
+  grid-template-areas:
+    "input1"
+    "botao1"
+    "input1"
+    "botao2";
+}
+
+.botao {
+  cursor: pointer;
+  height: 5vh;
+  margin-bottom: 4vh;
+  width: 50%;
+}
+
+.display_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.estrelinha {
+  animation: brilhaEstrelinha;
+  animation-duration: 10s;
+  height: 10px;
+  width: 10px;
+}
+
+.filter_invert {
+  filter: invert(100%);
+}
+
+.input {
+  height: 20vh;
+  margin-bottom: 4vh;
+  width: 75%;
+}
+
+@keyframes brilhaEstrelinha {
+  0% {
+    filter: opacity(0%);
+  }
+
+  80% {
+    filter: opacity(100%);
+  }
+
+  85% {
+    filter: opacity(100%);
+  }
+
+  100% {
+    filter: opacity(0%);
+  }
+}
