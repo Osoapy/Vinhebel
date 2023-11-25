@@ -18,4 +18,4 @@ function animacaoEstrela() {
   }, 10000);
 }
 
-setInterval(animacaoEstrela, 500);
+setInterval(animacaoEstrela, 1500);
