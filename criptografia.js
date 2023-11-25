@@ -1,41 +1,55 @@
 let chave = "vinhebel";
 
 function encriptografarTexto(event) {
-  let c1 = document.getElementById("encriptografar"), c2 = document.getElementById("descriptografar");
-  let v1 = c1.value;
-  c1.value = ""; c2.value = "";
-  for (let k = 0, i = 0, tamanho_chave = chave.length, tamanho = v1.length; k < tamanho; k++, i++) {
-    if(i > tamanho_chave - 1) {
-      i = 0;
-    }
-    let letra = v1[k];
-    let chave_atual = caractereParaInteiro(chave[i]);
-    if (letraDoAlfabeto(letra)) {
-      let letraCriptografada = criptografar(letra, chave_atual);
-      c2.value += letraCriptografada;
-    }
-    else {
-      c2.value += letra;
+  let inputCriptografar = document.getElementById("encriptografar"), inputDescriptografar = document.getElementById("descriptografar");
+  if (inputCriptografar.value != "") {
+    let v1 = inputCriptografar.value;
+    inputCriptografar.value = ""; inputDescriptografar.value = "";
+    for (let k = 0, i = 0, tamanho_chave = chave.length, tamanho = v1.length; k < tamanho; k++, i++) {
+      if(i > tamanho_chave - 1) {
+        i = 0;
+      }
+      let caractere = v1[k];
+      let chave_atual = caractereParaInteiro(chave[i]);
+      if (letraDoAlfabeto(caractere)) {
+        let letraCriptografada = criptografar(caractere, chave_atual);
+        if (caractere === caractere.toUpperCase()) {
+          inputDescriptografar.value += letraCriptografada.toUpperCase();;
+        }
+        else {
+          inputDescriptografar.value += letraCriptografada;
+        }
+      }
+      else {
+        inputDescriptografar.value += caractere;
+      }
     }
   }
 }
 
 function descriptografarTexto(event) {
-  let c1 = document.getElementById("encriptografar"), c2 = document.getElementById("descriptografar");
-  let v2 = c2.value;
-  c1.value = ""; c2.value = "";
-  for (let k = 0, i = 0, tamanho_chave = chave.length, tamanho = v2.length; k < tamanho; k++, i++) {
-    if(i > tamanho_chave - 1) {
-      i = 0;
-    }
-    let letra = v2[k];
-    let chave_atual = caractereParaInteiro(chave[i]);
-    if (letraDoAlfabeto(letra)) {
-      let letraDescriptografada = descriptografar(letra, chave_atual);
-      c1.value += letraDescriptografada;
-    }
-    else {
-      c1.value += letra;
+  let inputCriptografar = document.getElementById("encriptografar"), inputDescriptografar = document.getElementById("descriptografar");
+  if (inputDescriptografar.value != "") {
+    let v2 = inputDescriptografar.value;
+    inputCriptografar.value = ""; inputDescriptografar.value = "";
+    for (let k = 0, i = 0, tamanho_chave = chave.length, tamanho = v2.length; k < tamanho; k++, i++) {
+      if (i > tamanho_chave - 1) {
+        i = 0;
+      }
+      let caractere = v2[k];
+      let chave_atual = caractereParaInteiro(chave[i]);
+      if (letraDoAlfabeto(caractere)) {
+        let letraDescriptografada = descriptografar(caractere, chave_atual);
+        if (caractere === caractere.toUpperCase()) {
+          inputCriptografar.value += letraDescriptografada.toUpperCase();;
+        }
+        else {
+          inputCriptografar.value += letraDescriptografada;
+        }
+      }
+      else {
+        inputCriptografar.value += caractere;
+      }
     }
   }
 }
