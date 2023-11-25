@@ -31,6 +31,9 @@ button {
 }
 
 textarea {
+  border-radius: 15px;
+  padding: 10px;
+  text-shadow: 0px 0px 5px #ffcccc;
   resize: none;
 }
 
@@ -46,6 +49,7 @@ textarea {
 
 #titulo {
   display: inline;
+  text-shadow: 0px 0px 10px black;
 }
 
 #main {
@@ -59,6 +63,7 @@ textarea {
 }
 
 .botao {
+  border-radius: 10px;
   cursor: pointer;
   height: 5vh;
   margin-bottom: 4vh;
