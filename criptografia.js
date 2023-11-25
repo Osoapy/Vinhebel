@@ -11,7 +11,17 @@ function encriptografarTexto(event) {
       }
       let caractere = v1[k];
       let chave_atual = caractereParaInteiro(chave[i]);
-      if (letraDoAlfabeto(caractere)) {
+      if (letraDoAlfabeto(caractere) === 1) {
+        let letraCriptografada = criptografar(caractere, chave_atual);
+        if (caractere === caractere.toUpperCase()) {
+          inputDescriptografar.value += letraCriptografada.toUpperCase();;
+        }
+        else {
+          inputDescriptografar.value += letraCriptografada;
+        }
+      }
+      else if (letraDoAlfabeto(caractere) === 2) {
+        caractere = caractereEspecialParaNormal(caractere)
         let letraCriptografada = criptografar(caractere, chave_atual);
         if (caractere === caractere.toUpperCase()) {
           inputDescriptografar.value += letraCriptografada.toUpperCase();;
@@ -38,7 +48,17 @@ function descriptografarTexto(event) {
       }
       let caractere = v2[k];
       let chave_atual = caractereParaInteiro(chave[i]);
-      if (letraDoAlfabeto(caractere)) {
+      if (letraDoAlfabeto(caractere) === 1) {
+        let letraDescriptografada = descriptografar(caractere, chave_atual);
+        if (caractere === caractere.toUpperCase()) {
+          inputCriptografar.value += letraDescriptografada.toUpperCase();;
+        }
+        else {
+          inputCriptografar.value += letraDescriptografada;
+        }
+      }
+      else if (letraDoAlfabeto(caractere) === 2) {
+        caractere = caractereEspecialParaNormal(caractere)
         let letraDescriptografada = descriptografar(caractere, chave_atual);
         if (caractere === caractere.toUpperCase()) {
           inputCriptografar.value += letraDescriptografada.toUpperCase();;
@@ -116,6 +136,45 @@ function inteiroParaCaractere(numero) {
   }
 }
 
+function caractereEspecialParaNormal(letra) {
+  switch(letra) {
+    case 'à':
+    case 'á':
+    case 'ã':
+    case 'â':
+      return 'a';
+    case 'ç':
+      return 'c';
+    case 'é':
+    case 'ê':
+      return 'e';
+    case 'í':
+      return 'i';
+    case 'ó':
+    case 'õ':
+      return 'o';
+    case 'ú':
+      return 'u;'
+    case 'À':
+    case 'Á':
+    case 'Ã':
+    case 'Â':
+      return 'A';
+    case 'Ç':
+     return 'C';
+    case 'É':
+    case 'Ê':
+      return 'E';
+    case 'Í':
+      return 'I';
+    case 'Ó':
+    case 'Õ':
+      return 'O';
+    case 'Ú':
+      return 'U';
+  }
+}
+  
 function criptografar(letra, chave) {
   letra = letra.toLowerCase();
   let letraCriptografada = (caractereParaInteiro(letra) + chave);
@@ -145,24 +204,50 @@ function letraDoAlfabeto(letra) {
     case 'f': 
     case 'g': 
     case 'h': 
-    case 'i': 
+    case 'i':
     case 'j': 
     case 'k': 
     case 'l': 
     case 'm': 
     case 'n': 
-    case 'o': 
+    case 'o':
     case 'p': 
     case 'q': 
     case 'r': 
     case 's': 
     case 't': 
-    case 'u': 
+    case 'u':
     case 'v': 
     case 'w': 
     case 'x': 
     case 'y': 
-    case 'z': return 1;
+    case 'z': 
+      return 1;
+
+    /* CARACTERES ESPECIAIS == 2 */
+    case 'à':
+    case 'á':
+    case 'ã':
+    case 'â':
+    case 'ç':
+    case 'é':
+    case 'ê':
+    case 'í':
+    case 'ó':
+    case 'õ':
+    case 'ú':
+    case 'À':
+    case 'Á':
+    case 'Ã':
+    case 'Â':
+    case 'Ç':
+    case 'É':
+    case 'Ê':
+    case 'Í':
+    case 'Ó':
+    case 'Õ':
+    case 'Ú':
+      return 2;
   }
   return 0;
 }

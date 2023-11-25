@@ -9,7 +9,7 @@ function animacaoEstrela() {
   let imagem = document.createElement("img");
   imagem.src = "images/estrela.png";
   imagem.classList.add("estrelinha");
-  imagem.style.position = "fixed";
+  imagem.style.position = "inherit";
   imagem.style.left = `${numAleatorio(maxW)}px`;
   imagem.style.top = `${numAleatorio(maxH)}px`;
   div.appendChild(imagem);
@@ -18,4 +18,4 @@ function animacaoEstrela() {
   }, 10000);
 }
 
-setInterval(animacaoEstrela, 1000);
+setInterval(animacaoEstrela, 500);

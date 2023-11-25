@@ -4,7 +4,7 @@
 
 :root {
   /*--fonte_titulo: 'Pacifico', cursive;*/
-  /*--fonte_titulo: 'Lilita One', cursive;*/
+  /*--fonte_botao: 'Lilita One', cursive;*/
   --fonte_titulo: 'Permanent Marker', cursive;
 }
 
@@ -20,6 +20,8 @@ body {
   flex-direction: column;
   height: 100vh;
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
   padding: 0;
   width: 100vw;
 }
@@ -30,69 +32,172 @@ button {
   z-index: 1;
 }
 
-textarea {
-  border-radius: 15px;
-  padding: 10px;
-  text-shadow: 0px 0px 5px #ffcccc;
-  resize: none;
+#estrelas {
+  position: absolute;
 }
 
-#cabecalho {
-  align-items: center;
-  color: white;
-  display: flex;
-  font-family: var(--fonte_titulo);
-  grid-area: cabecalho;
-  justify-content: center;
-  text-align: center;
+/* Estilos para quando altura é maior que largura */
+@media (orientation: portrait) {
+  textarea {
+    border-radius: 15px;
+    padding: 10px;
+    text-shadow: 0px 0px 5px #ffcccc;
+    resize: none;
+  }
+
+  #cabecalho {
+    align-items: center;
+    color: black;
+    display: flex;
+    font-family: var(--fonte_titulo);
+    justify-content: center;
+    text-align: center;
+  }
+
+  #titulo {
+    display: inline;
+    filter: invert(100%);
+    text-shadow: 0px 0px 10px white;
+  }
+
+  #subtitulo {
+    display: inline;
+    filter: invert(100%);
+    font-family: var(--fonte_titulo);
+    text-shadow: 0px 0px 10px white;
+  }
+
+  #main {
+    display: grid;
+    grid-template-areas:
+      "input1"
+      "botao1"
+      "input2"
+      "botao2";
+  }
+
+  .div_encriptografar {
+    grid-area: input1;
+  }
+
+  .div_descriptografar {
+    grid-area: input2;
+  }
+
+  .div_botao1 {
+    grid-area: botao1;
+  }
+
+  .div_botao2 {
+    grid-area: botao2;
+  }
+
+  .botao {
+    border-radius: 10px;
+    cursor: pointer;
+    height: 5vh;
+    margin-bottom: 4vh;
+    width: 50%;
+  }
+
+  .display_flex {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .estrelinha {
+    animation: brilhaEstrelinha;
+    animation-duration: 10s;
+    height: 10px;
+    width: 10px;
+  }
+
+  .filter_invert {
+    filter: invert(100%);
+  }
+
+  .input {
+    height: 20vh;
+    margin-bottom: 4vh;
+    width: 75%;
+  }
 }
 
-#titulo {
-  display: inline;
-  text-shadow: 0px 0px 10px black;
-}
+/* Estilos para quando largura é maior que altura */
+@media (orientation: landscape) {
+  textarea {
+    border-radius: 15px;
+    padding: 10px;
+    text-shadow: 0px 0px 5px #ffcccc;
+    resize: none;
+  }
 
-#main {
-  display: grid;
-  grid-area: main;
-  grid-template-areas:
-    "input1"
-    "botao1"
-    "input1"
-    "botao2";
-}
+  #cabecalho {
+    align-items: center;
+    color: black;
+    display: flex;
+    grid-area: cabecalho;
+    justify-content: center;
+    text-align: center;
+  }
 
-.botao {
-  border-radius: 10px;
-  cursor: pointer;
-  height: 5vh;
-  margin-bottom: 4vh;
-  width: 50%;
-}
+  #titulo {
+    display: inline;
+    filter: invert(100%);
+    font-family: var(--fonte_titulo);
+    text-shadow: 0px 0px 10px white;
+  }
 
-.display_flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  #subtitulo {
+    display: inline;
+    filter: invert(100%);
+    font-family: var(--fonte_titulo);
+    text-shadow: 0px 0px 10px white;
+  }
+    
+  #main {
+    display: grid;
+    grid-area: main;
+    grid-template-areas:
+      "input1 input2"
+      "botao1 botao2";
+  }
 
-.estrelinha {
-  animation: brilhaEstrelinha;
-  animation-duration: 10s;
-  height: 10px;
-  width: 10px;
-}
+  .botao {
+    border-radius: 10px;
+    cursor: pointer;
+    height: 5vh;
+    margin-bottom: 4vh;
+    width: 50%;
+  }
 
-.filter_invert {
-  filter: invert(100%);
-}
+  .display_flex {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.input {
-  height: 20vh;
-  margin-bottom: 4vh;
-  width: 75%;
-}
+  .estrelinha {
+    animation: brilhaEstrelinha;
+    animation-duration: 10s;
+    height: 10px;
+    width: 10px;
+  }
 
+  .filter_invert {
+    filter: invert(100%);
+  }
+
+  .input {
+    height: 60vh;
+    margin-bottom: 4vh;
+    width: 61%;
+  }
+}
+  
 @keyframes brilhaEstrelinha {
   0% {
     filter: opacity(0%);
